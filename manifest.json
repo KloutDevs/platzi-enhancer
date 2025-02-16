@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Platzi Enhancer",
+  "version": "1.0",
+  "description": "Upgrade your Platzi experience with additional features",
+  "permissions": ["activeTab", "storage"],
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://platzi.com/*"],
+      "js": ["src/components/search/pathSearch.js"],
+      "css": ["src/styles/global.css", "src/components/search/pathSearch.css"]
+    }
+  ],
+  "background": {
+    "service_worker": "src/background/background.js"
+  }
+}
